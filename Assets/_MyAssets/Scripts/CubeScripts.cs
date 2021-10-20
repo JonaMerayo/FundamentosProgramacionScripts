@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CubeScripts : MonoBehaviour
 {
     public float extraForce = 1;
+    public float power = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +34,7 @@ public class CubeScripts : MonoBehaviour
             //Debug.Log("Fuerza aplicada a cubo: " + forceToAdd);
 
             //Reduce object size while size and color
-            reduceObjectSizeAndColor(forceToAdd);
+            reduceObjectSizeAndColor(forceToAdd);           
 
         }
     }  
