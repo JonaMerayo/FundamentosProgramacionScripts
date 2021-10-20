@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CubeScripts : MonoBehaviour
 {
-    public float forceApplied = 50;
+    public float extraForce = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -20,20 +21,57 @@ public class CubeScripts : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        // If the object that hit it is the Player
+        // If the object that hit us is the Player
         if (col.gameObject.tag == "Player")
         {
-            // Calculate Angle Between the collision point and the cube
-            Vector3 dir = col.contacts[0].point - transform.position;
+            // Store force to add
+            Vector3 forceToAdd = calculateForceToApply(col);
 
-            // We then get the opposite (-Vector3) and normalize it
-            dir = -dir.normalized;
+            // Add force. This will push forward the cube
+            GetComponent<Rigidbody>().AddForce(forceToAdd);
+            //Debug.Log("Fuerza aplicada a cubo: " + forceToAdd);
 
-            // And finally we add force in the direction of dir and multiply it by force. 
-            // This will push forward the cylinder with the force and angle applied
-            // and modified by de force applied we choose
-            GetComponent<Rigidbody>().AddForce(dir * forceApplied);
+            //Reduce object size while size and color
+            reduceObjectSizeAndColor(forceToAdd);
+
+        }
+    }  
+    private Vector3 calculateForceToApply(Collision col)
+    {
+        // Calculate Angle Between the collision point and the cube and normilize it
+        Vector3 dir = col.contacts[0].point - transform.position;
+        dir = dir.normalized;
+
+        // Calculate force of the collision 
+        Vector3 force = col.impulse / Time.fixedDeltaTime;
+
+        //Calculate force and direction to add taking into account dir, force and extraforce.
+        //It must be negative to thow objetc in opossite direction.
+        Vector3 forceCalculated = -(Vector3.Scale(dir, force) * extraForce);
+        return forceCalculated;        
+    }    
+    private void reduceObjectSizeAndColor(Vector3 force)
+    {           
+        //On collision the object must reduce its size depending on the force applied
+        Transform tran = GetComponent<Transform>();
+        Renderer rend = GetComponent<Renderer>();
+        Vector3 newSize = tran.localScale - (tran.localScale * force.magnitude / 800000);
+
+        //Reduce till object size bigger than 2 and dissapear if smaller
+        if (newSize.x > 2)
+        {
+            //Reduce size
+            tran.localScale = newSize;
+
+            //Reduce color
+            rend.material.color = rend.material.color / tran.localScale.x;
+            //Debug.Log("color: " + rend.material.color / tran.localScale.x);
+        }
+        else
+        {
+            //Destroy object 
+            //rend.enabled = false;
+            Destroy(gameObject);
         }
     }
-
 }
