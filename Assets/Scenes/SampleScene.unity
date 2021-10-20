@@ -336,13 +336,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538519764}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd108b3f976fc4d45882087b200e8d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  powerBar: {fileID: 0}
 --- !u!64 &538519770
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1051,7 +1050,7 @@ GameObject:
   - component: {fileID: 1497020978}
   m_Layer: 5
   m_Name: SliderPower
-  m_TagString: Untagged
+  m_TagString: PowerBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

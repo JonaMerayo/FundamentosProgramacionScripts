@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class carGainPower : MonoBehaviour
 {
-    public float power= 1f;
+    private float power= 1f;
     private Slider powerBar;
     // Start is called before the first frame update
     void Start()
