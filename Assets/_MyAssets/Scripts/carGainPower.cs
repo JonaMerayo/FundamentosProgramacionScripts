@@ -28,7 +28,7 @@ public class carGainPower : MonoBehaviour
             Vector3 force = col.impulse / Time.fixedDeltaTime;
 
             // Gain power
-            power += force.magnitude / 500000;
+            power += force.magnitude / 250000;
             powerBar.value = power;
         }
 

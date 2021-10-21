@@ -341,7 +341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd108b3f976fc4d45882087b200e8d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 1
 --- !u!64 &538519770
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1349,6 +1348,10 @@ PrefabInstance:
     - target: {fileID: 8339704440605598818, guid: 88de14d3fc7575842bd926ec916bf6b6, type: 3}
       propertyPath: m_Mass
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8339704440605598818, guid: 88de14d3fc7575842bd926ec916bf6b6, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8339704440605598819, guid: 88de14d3fc7575842bd926ec916bf6b6, type: 3}
       propertyPath: forceAdded
