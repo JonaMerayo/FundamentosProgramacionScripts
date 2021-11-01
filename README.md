@@ -14,7 +14,7 @@ En Unity se pueden definir:
    
 <strong>Resumen del juego:</strong>
    
-   Nuestro personaje deberá recorrer el laberinto para llegar al portal central que le llevará a la victoria o, en futuras actualizaciones, al siguiente nivel. La sombra de dicho personaje se mueve mediante físicas e intenta, una vez que lo dejamos de mover, volver a su posición original como sombra del personaje. Esta sombra, en su zona de juego (parte inferior laberinto), está amenazada constantemente por unos haces laser que van cerrando el circulo sobre la zona central, si es alcanzado por ellos o estos alcanzan el centro, el suelo de nuestro laberinto explotará y finaliza la partida. Existen monedas funcionando como PickUps, en la zona del laberinto, que al ser recogidas, repeleran ligeramente los haces, dandonos más tiempo y alejando el peligro. Si conseguimos alcanzar y cruzar el portal central, habremos superado el nivel.
+   Nuestro personaje deberá recorrer el laberinto para llegar al portal central que le llevará a la victoria o, en futuras actualizaciones, al siguiente nivel. La sombra de dicho personaje se mueve mediante físicas e intenta, una vez que lo dejamos de mover, volver a su posición original como sombra del personaje. Esta sombra, en su zona de juego (parte inferior laberinto), está amenazada constantemente por unos haces laser que van cerrando el circulo sobre la zona central, si es alcanzado por ellos o estos alcanzan el centro el suelo de nuestro laberinto explotará y finaliza la partida. Existen monedas funcionando como PickUps, en la zona del laberinto, que al ser recogidas repeleran ligeramente los haces, dandonos más tiempo y alejando el peligro. Si conseguimos alcanzar y cruzar el portal central, habremos superado el nivel.
    
    
    <strong>Actividades a realizar:</strong>   
@@ -30,15 +30,29 @@ El UI del menú inicial permitirá las dos opciones indicadas, en el caso del Tu
    
    Los PickUps serán monedas que giran sobre si mismas (recogidas y modificadas de los standard Assets), estas, al ser recogidas, harán retroceder, una cantidad de espacio predeterminada, a los Lasers que amenazan a nuestra sombra y nuestra partida. Dandonos, así más tiempo para alcanzar la meta.
    
+   
+   
    3. Agrega un objeto que te teletransporte a otra zona de la escena.
+
+  El Portal Central, al atravesarlo, transporta al personaje hacía otra zona que, en el momento actual, es la zona de Victoria y activa la interfaz UI que muestra que hemos ganado.
+
+
            
    4. Agrega un objeto físico que muevas con las teclas wasd.
+
+  La sombra del personaje se moverá mediante dichas teclas (el personaje mediante las flechas de dirección), pudiendo separarse momentaneamente para esquivar los Lasers. Su movimiento será mediante físicas.
+
+
    
    5. Agrega un personaje que se dirija hacia un objetivo estático en la escena.
+
+  Los Haces Laser se dirigen continuamente hacía la zona central del laberinto, que será un EmptyGameObject estático equidistante a todos los haces, haciendo que estos vayan cerrando el círculo.
+  
+  
    
    6.  Agrega un personajes que se dirija al objeto del apartado 4. 
 
-
+  Inicialmente hemos hecho que el personaje se dirija continuamente hacia su sombra (elemento apartado 4), posteriormente lo he modificado para hacer que sea la sombra la que va hacia el personaje, dado que genera menos problemas (zona sombra no tiene paredes) y es más coherente con la Narrativa y Mecanicas del juego.
 
  <br />
  <br />
