@@ -109,6 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c53d0a6c6cb070442ae75c5a79f13ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingSpeed: 0.5
+  movingSpeed: 1
   distanceRepeled: 2
   ethanEvents: {fileID: 0}

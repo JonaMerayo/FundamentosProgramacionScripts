@@ -54,8 +54,8 @@ public class ShadowScript : MonoBehaviour
         if (Vector3.Distance(myTransform.position, aimedPosition) >= 0.001f)
         {
             // Move our position a step closer to the target.
-            float step = movigTowardsPlayerSpeed * Time.deltaTime; // calculate distance to move
-            myTransform.position = Vector3.MoveTowards(transform.position, aimedPosition, step);
+            float step = movigTowardsPlayerSpeed * Time.fixedTime; // calculate distance to move
+            myTransform.position = Vector3.MoveTowards(m_Rigidbody.position, aimedPosition, step);
 
         }
     }
