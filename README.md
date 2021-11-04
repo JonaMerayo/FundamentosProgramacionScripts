@@ -9,6 +9,7 @@ En esta actividad realizaremos pruebas con el Sistema de Waypoints de Unity:
   • Para el documento que debes subir a github, crear un gif animado con el recorrido renderizando los puntos del circuito.
     
     
+*****************************************************************************************************************************************
 Para este ejercicio se han utilizado los scripts "WaypointCircuit" y "WaypointProgressTracker" de los StandardAssets/Utilities. 
     
 Se ha creado un EmptyObject llamado PositionsParent y en el se han añadido como hijos varios elementos de los que tomaremos la posición:
